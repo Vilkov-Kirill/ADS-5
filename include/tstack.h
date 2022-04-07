@@ -26,3 +26,5 @@ public:
         return top == size - 1;
     }
 };
+
+#endif
