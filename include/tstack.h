@@ -2,8 +2,27 @@
 #ifndef INCLUDE_TSTACK_H_
 #define INCLUDE_TSTACK_H_
 
-template<typename T, int size>
-class TStack {
-
+template<typename type>
+class TStack
+{
+private:
+    type arr[size];
+    int top;
+public:
+    TStack() :top(-1) { }
+    type get() const {
+        return arr[top];
+    }
+    void pop() {
+        if (top >= 0) top--;
+    }
+    bool isEmpty() const {
+        return top == -1;
+    }
+    void push(type item) {
+        if (top < size - 1) arr[++top] = item;
+    }
+    bool isFull() const {
+        return top == size - 1;
+    }
 };
-#endif  // INCLUDE_TSTACK_H_
