@@ -10,7 +10,7 @@ std::string infx2pstfx(std::string inpt) {
     for (int i = 0; i < len; i++) {
         if ('0' <= inpt[i] && inpt[i] <= '9') {
             res += inpt[i];
-            res += " ";
+            //res += " ";
         } else if (inpt[i] == '(') {
             stack1.push(inpt[i]);
         } else if ((inpt[i] == '+' || inpt[i] == '-') &&
@@ -29,7 +29,7 @@ std::string infx2pstfx(std::string inpt) {
         } else if (inpt[i] == ')') {
             while (stack1.get() != '(') {
                 res += stack1.get();
-                res += " ";
+                //res += " ";
                 stack1.pop();
             }
             stack1.pop();
@@ -37,7 +37,7 @@ std::string infx2pstfx(std::string inpt) {
             if (inpt[i] == '+' || inpt[i] == '-') {
                 while ((stack1.get() != '(') && (!stack1.isEmpty())) {
                     res += stack1.get();
-                    res += " ";
+                    //res += " ";
                     stack1.pop();
                 }
                 stack1.push(inpt[i]);
@@ -46,7 +46,7 @@ std::string infx2pstfx(std::string inpt) {
                 while ((stack1.get() == '*' || stack1.get() == '/') &&
                     (!stack1.isEmpty())) {
                     res += stack1.get();
-                    res += " ";
+                    //res += " ";
                     stack1.pop();
                 }
                 stack1.push(inpt[i]);
@@ -55,7 +55,7 @@ std::string infx2pstfx(std::string inpt) {
     }
     while (!stack1.isEmpty()) {
         res += stack1.get();
-        res += " ";
+        //res += " ";
         stack1.pop();
     }
     std::string out;
