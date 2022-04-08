@@ -59,9 +59,9 @@ std::string infx2pstfx(std::string inpt) {
         stack1.pop();
     }
     std::string out;
-    for (int i = 0; i < len - 1; i++) {
+    for (int i = 0; i < len - 2; i++) {
         out += res[i];
-        if (!(i == len - 2)) out += " ";
+        if (!(i == len - 3)) out += " ";
     }
     return out;
 }
