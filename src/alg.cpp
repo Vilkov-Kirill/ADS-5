@@ -55,13 +55,15 @@ std::string infx2pstfx(std::string inpt) {
     }
     while (!stack1.isEmpty()) {
         res += stack1.get();
-        //res += " ";
         stack1.pop();
     }
     std::string out;
-    for (int i = 0; i < len - 2; i++) {
+    len = res.length();
+    //std::cout << len << "##" << res << "\n";
+    for (int i = 0; i <= len - 1; i++) {
+        //printf("%i#%c#\n", i, res[i]);
         out += res[i];
-        if (!(i == len - 3)) out += " ";
+        if (!(i == len - 1)) out += " ";
     }
     return out;
 }
