@@ -29,5 +29,3 @@ class TStack {
 };
 
 #endif // INCLUDE_TSTACK_H_
-TStack<char, 50> stack1;
-TStack<int, 50> stack2;
