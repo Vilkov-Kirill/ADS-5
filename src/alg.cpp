@@ -4,7 +4,7 @@
 #include "tstack.h"
 
 std::string infx2pstfx(std::string inpt) {
-    TStack<char> stack1;
+    TStack<char, 50> stack1;
     std::string res;
     int len = inpt.length();
     for (int i = 0; i < len; i++) {
@@ -58,7 +58,7 @@ std::string infx2pstfx(std::string inpt) {
 }
 
 int eval(std::string inpt) {
-    TStack<int> stack2;
+    TStack<int, 50> stack2;
     int len = inpt.length();
     for (int i = 0; i < len; i++) {
         if ('0' <= inpt[i] && inpt[i] <= '9') {
