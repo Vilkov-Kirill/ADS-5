@@ -4,7 +4,7 @@
 
 #include <string>
 
-template<typename T>
+template<typename T, int size>
 class TStack {
  private:
     T arr[size];
