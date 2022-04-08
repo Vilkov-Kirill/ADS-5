@@ -6,10 +6,10 @@
 
 template<typename type>
 class TStack {
-private:
+ private:
     type arr[size];
     int top;
-public:
+ public:
     TStack() :top(-1) { }
     type get() const {
         return arr[top];
@@ -28,4 +28,4 @@ public:
     }
 };
 
-#endif INCLUDE_ALG_H_
+#endif // INCLUDE_ALG_H_
