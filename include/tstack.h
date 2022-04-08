@@ -2,6 +2,8 @@
 #ifndef INCLUDE_TSTACK_H_
 #define INCLUDE_TSTACK_H_
 
+#include <string>
+
 template<typename type>
 class TStack
 {
@@ -27,4 +29,4 @@ public:
     }
 };
 
-#endif
+#endif // INCLUDE_ALG_H_
