@@ -4,7 +4,7 @@
 
 #include <string>
 
-template<typename T>
+template<typename T, int size>
 class TStack {
  private:
     T arr[50];
@@ -29,3 +29,5 @@ class TStack {
 };
 
 #endif // INCLUDE_TSTACK_H_
+TStack<char, 50> stack1;
+TStack<int, 50> stack2;
