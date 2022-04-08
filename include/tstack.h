@@ -5,8 +5,7 @@
 #include <string>
 
 template<typename type>
-class TStack
-{
+class TStack {
 private:
     type arr[size];
     int top;
