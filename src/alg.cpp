@@ -3,8 +3,7 @@
 #include <map>
 #include "tstack.h"
 
-std::string infx2pstfx(std::string inpt)
-{
+std::string infx2pstfx(std::string inpt) {
     TStack<char> stack1;
     std::string res;
     int len = inpt.length();
@@ -14,7 +13,8 @@ std::string infx2pstfx(std::string inpt)
             stack1.push(inpt[i]);
         else if ((inpt[i] == '+' || inpt[i] == '-') &&
             (stack1.get() != '*') &&
-            (stack1.get() != '/') && (stack1.get() != '+') && (stack1.get() != '-'))
+            (stack1.get() != '/') && (stack1.get() != '+') &&
+            (stack1.get() != '-'))
             stack1.push(inpt[i]);
         else if ((inpt[i] == '*') &&
             ((stack1.get() != '*') && (stack1.get() != '/')||
@@ -24,18 +24,14 @@ std::string infx2pstfx(std::string inpt)
             (stack1.get() != '/') ||
             (stack1.get() == '+') || (stack1.get() == '-')))
             stack1.push(inpt[i]);
-        else if (inpt[i] == ')')
-        {
+        else if (inpt[i] == ')') {
             while (stack1.get() != '(') {
                 res += stack1.get();
                 stack1.pop();
             }
             stack1.pop();
-        }
-        else
-        {
-            if (inpt[i] == '+' || inpt[i] == '-')
-            {
+        } else {
+            if (inpt[i] == '+' || inpt[i] == '-') {
                 while ((stack1.get() != '(') && (!stack1.isEmpty())) {
                     res += stack1.get();
                     stack1.pop();
@@ -61,8 +57,7 @@ std::string infx2pstfx(std::string inpt)
     return inpt;
 }
 
-int eval(std::string inpt)
-{
+int eval(std::string inpt) {
     TStack<int> stack2;
     int len = inpt.length();
     for (int i = 0; i < len; i++) {
