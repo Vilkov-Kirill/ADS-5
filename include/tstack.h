@@ -29,4 +29,4 @@ public:
     }
 };
 
-#endif // INCLUDE_ALG_H_
+#endif INCLUDE_ALG_H_
