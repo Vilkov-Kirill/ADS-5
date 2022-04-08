@@ -22,9 +22,9 @@ std::string infx2pstfx(std::string inpt) {
             stack1.push(inpt[i]);
         else if ((inpt[i] == '/') && ((stack1.get() != '*') &&
             (stack1.get() != '/') ||
-            (stack1.get() == '+') || (stack1.get() == '-')))
+            (stack1.get() == '+') || (stack1.get() == '-'))) {
             stack1.push(inpt[i]);
-        else if (inpt[i] == ')') {
+        } else if (inpt[i] == ')') {
             while (stack1.get() != '(') {
                 res += stack1.get();
                 stack1.pop();
