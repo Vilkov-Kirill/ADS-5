@@ -4,10 +4,10 @@
 
 #include <string>
 
-template<typename T, int size>
+template<typename T>
 class TStack {
  private:
-    T arr[size];
+    T arr[50];
     int top;
  public:
     TStack() :top(-1) { }
