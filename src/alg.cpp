@@ -8,19 +8,20 @@ std::string infx2pstfx(std::string inpt) {
     std::string res;
     int len = inpt.length();
     for (int i = 0; i < len; i++) {
-        if ('0' <= inpt[i] && inpt[i] <= '9') res += inpt[i];
-        else if (inpt[i] == '(')
+        if ('0' <= inpt[i] && inpt[i] <= '9') {
+            res += inpt[i];
+        } else if (inpt[i] == '(') {
             stack1.push(inpt[i]);
-        else if ((inpt[i] == '+' || inpt[i] == '-') &&
+        } else if ((inpt[i] == '+' || inpt[i] == '-') &&
             (stack1.get() != '*') &&
             (stack1.get() != '/') && (stack1.get() != '+') &&
-            (stack1.get() != '-'))
+            (stack1.get() != '-')) {
             stack1.push(inpt[i]);
-        else if ((inpt[i] == '*') &&
+        } else if ((inpt[i] == '*') &&
             ((stack1.get() != '*') && (stack1.get() != '/')||
-            (stack1.get() == '+') || (stack1.get() == '-')))
+            (stack1.get() == '+') || (stack1.get() == '-'))) {
             stack1.push(inpt[i]);
-        else if ((inpt[i] == '/') && ((stack1.get() != '*') &&
+        } else if ((inpt[i] == '/') && ((stack1.get() != '*') &&
             (stack1.get() != '/') ||
             (stack1.get() == '+') || (stack1.get() == '-'))) {
             stack1.push(inpt[i]);
