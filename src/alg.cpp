@@ -47,7 +47,6 @@ std::string infx2pstfx(std::string inpt) {
                 stack1.push(inpt[i]);
             }
         }
-
     }
     while (!stack1.isEmpty()) {
         res += stack1.get();
