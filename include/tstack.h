@@ -4,14 +4,14 @@
 
 #include <string>
 
-template<typename type>
+template<typename T>
 class TStack {
  private:
-    type arr[size];
+    T arr[size];
     int top;
  public:
     TStack() :top(-1) { }
-    type get() const {
+    T get() const {
         return arr[top];
     }
     void pop() {
@@ -20,7 +20,7 @@ class TStack {
     bool isEmpty() const {
         return top == -1;
     }
-    void push(type item) {
+    void push(T item) {
         if (top < size - 1) arr[++top] = item;
     }
     bool isFull() const {
