@@ -63,7 +63,7 @@ std::string infx2pstfx(std::string inpt) {
         out += res[i];
         if (!(i == len - 2)) out += " ";
     }
-    return res;
+    return out;
 }
 
 int eval(std::string inpt) {
