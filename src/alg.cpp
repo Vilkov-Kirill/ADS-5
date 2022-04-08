@@ -4,37 +4,46 @@
 #include "tstack.h"
 
 std::string infx2pstfx(std::string inpt) {
-    TStack<char, 50> stack1;
+    TStack<char, 100> stack1;
     std::string res;
     int len = inpt.length();
     for (int i = 0; i < len; i++) {
         if ('0' <= inpt[i] && inpt[i] <= '9') {
             res += inpt[i];
-        } else if (inpt[i] == '(') {
+            res += " ";
+        }
+        else if (inpt[i] == '(') {
             stack1.push(inpt[i]);
-        } else if ((inpt[i] == '+' || inpt[i] == '-') &&
+        }
+        else if ((inpt[i] == '+' || inpt[i] == '-') &&
             (stack1.get() != '*') &&
             (stack1.get() != '/') && (stack1.get() != '+') &&
             (stack1.get() != '-')) {
             stack1.push(inpt[i]);
-        } else if ((inpt[i] == '*') &&
-            ((stack1.get() != '*') && (stack1.get() != '/')||
-            (stack1.get() == '+') || (stack1.get() == '-'))) {
+        }
+        else if ((inpt[i] == '*') &&
+            ((stack1.get() != '*') && (stack1.get() != '/') ||
+                (stack1.get() == '+') || (stack1.get() == '-'))) {
             stack1.push(inpt[i]);
-        } else if ((inpt[i] == '/') && ((stack1.get() != '*') &&
+        }
+        else if ((inpt[i] == '/') && ((stack1.get() != '*') &&
             (stack1.get() != '/') ||
             (stack1.get() == '+') || (stack1.get() == '-'))) {
             stack1.push(inpt[i]);
-        } else if (inpt[i] == ')') {
+        }
+        else if (inpt[i] == ')') {
             while (stack1.get() != '(') {
                 res += stack1.get();
+                res += " ";
                 stack1.pop();
             }
             stack1.pop();
-        } else {
+        }
+        else {
             if (inpt[i] == '+' || inpt[i] == '-') {
                 while ((stack1.get() != '(') && (!stack1.isEmpty())) {
                     res += stack1.get();
+                    res += " ";
                     stack1.pop();
                 }
                 stack1.push(inpt[i]);
@@ -43,6 +52,7 @@ std::string infx2pstfx(std::string inpt) {
                 while ((stack1.get() == '*' || stack1.get() == '/') &&
                     (!stack1.isEmpty())) {
                     res += stack1.get();
+                    res += " ";
                     stack1.pop();
                 }
                 stack1.push(inpt[i]);
@@ -53,12 +63,11 @@ std::string infx2pstfx(std::string inpt) {
         res += stack1.get();
         stack1.pop();
     }
-    inpt = res;
-    return inpt;
+    return res;
 }
 
 int eval(std::string inpt) {
-    TStack<int, 50> stack2;
+    TStack<int, 100> stack2;
     int len = inpt.length();
     for (int i = 0; i < len; i++) {
         if ('0' <= inpt[i] && inpt[i] <= '9') {
